@@ -58,13 +58,13 @@ def Create_makefile(dir,out_ext = "exe",in_ext = "cpp$",recursive=False,delcomma
         print("Created in "+dir.rstrip("/")+"/makefile")
         if recursive:
             dirs =  [os.path.realpath(i) for i in dir_ls if os.path.isdir(i)]
-            print("Checek",dirs)
+            
             for i in dirs:
                 try:
-                    Create_makefile(i,out_ext=out_ext,in_ext=in_ext,recursive =recursive)
+                    Create_makefile(i,out_ext=out_ext,in_ext=in_ext,recursive =recursive,compiler=compiler,delcommand=delcommand)
                 except AssertionError:
                     pass
-            print("done",dir)
+            
 
             
 if  __name__ == "__main__":
