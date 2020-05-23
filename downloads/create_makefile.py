@@ -52,7 +52,7 @@ def Create_makefile(dir,out_ext = "exe",in_ext = "cpp$",recursive=False,delcomma
                 mkfile.writelines(f"\t{compiler} {inp} -o {outp}\n")
             
             #make update 
-            mkfile.write(f"update:\n\tpy -c \"from requests import get;file =open('cr.py','w');file.write( get('https://satyamkumarai.github.io/downloads/create_makefile.py').text);file.close()\"\n\tpy {os.path.realpath(sys.argv[0])} {dir} -e {out_ext}\n")
+            mkfile.write(f"update:\n\tpy -c \"from requests import get;file =open(f'{os.path.basename(sys.argv[0])}','w');file.write( get('https://satyamkumarai.github.io/downloads/create_makefile.py').text);file.close()\"\n\tpy {os.path.basename(sys.argv[0])} {dir} -e {out_ext}\n")
             #make clean
             mkfile.write(f"clean:\n\t{delcommand} \"./*.exe\"")
         print("Created in "+dir.rstrip("/")+"/makefile")
