@@ -1,0 +1,68 @@
+body{
+    background-color: rgb(0, 0, 0);
+    
+}
+h1{
+    color: rgb(255, 255, 255);
+    font-family: 'Times New Roman', Times, serif;
+
+
+    border-color: whitesmoke;
+    border-bottom: 1px;
+    text-align: left;
+}
+
+input[type=button]{
+    color:white}
+
+.btn-outline{
+    border-color: aqua;
+    background-color: rgb(0, 0, 0);
+    
+}
+.btn-outline:hover{
+    background-color: rgb(11, 220, 220);
+    color:black
+}
+#myId{
+    color:rgb(211, 212, 233);    font: oblique;
+    margin-left: 2%;
+    margin-top: 2%;
+    font-size: larger;
+}
+#IncomingPeerId{
+    background-color: rgb(0, 0, 0);
+    color:aqua;
+    border-radius: 14px;
+    border-width: 2px;
+    border-color:rgb(200, 216, 223);
+    margin-left: 2%;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+#IncomingPeerId:hover{
+    border-color:rgb(28, 154, 208);
+    
+}
+#IncomingPeerId:active{
+    border-color:rgb(28, 154, 208);
+    
+}
+
+#PeerId{
+    color:rgb(206, 227, 228);
+    margin-left: 2%;
+}
+#getPeerId{
+    margin-left: 2%;
+}
+video{
+    margin-left: 2%;
+    border: 2px,2px,2px,2px;
+    border-color: aqua;
+}
+#help{
+    white-space: pre-line;
+    margin-left: 2%;
+}

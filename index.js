@@ -18,6 +18,7 @@ function getPeerId() {
     //display the peer Id on the Page
     div = document.createElement('div')
     div.innerHTML = peer._id
+    div.id = "PeerId"
     doc = document.getElementById("myId")
     doc.appendChild(div)
 
@@ -32,32 +33,37 @@ function getPeerId() {
 // });
 
 
-peer.on('call',call => {
+peer.on('call', call => {
     console.log("IncomingCall")
     navigator.mediaDevices.getUserMedia(constraint)
-    .then(stream => {
-        console.log("Streaming")
-        call.answer(stream)
-        call.on('stream',rmtStream => {
-        video.srcObject = rmtStream
-    
-    
-    })
-    })
-    })
+        .then(stream => {
+            console.log("Streaming")
+            call.answer(stream)
+            call.on('stream', rmtStream => {
+                video.srcObject = rmtStream
+
+
+            })
+        })
+})
 function connectToPeer() {
     console.log("calling..")
-   otherId = document.getElementById('IncomingPeerId').value
-    console.log(otherId)
-    navigator.mediaDevices.getUserMedia(constraint)
-        .then(stream => {
-            call = peer.call(otherId, stream)
-            call.on("stream", rmtStream => {
-                video.srcObject = rmtStream
-            }
+    otherId = document.getElementById('IncomingPeerId').value
 
-            )
-        })
+    console.log(otherId)
+    if (otherId != peer._id) {
+        navigator.mediaDevices.getUserMedia(constraint)
+            .then(stream => {
+                call = peer.call(otherId, stream)
+                call.on("stream", rmtStream => {
+                    video.srcObject = rmtStream
+                }
+
+                )
+            })
+    }else{
+        console.error("Don't Enter the Same Peer Id as the Destination Peer ID")
+    }
 }
 //When someone calls 
 //peer.on('call') returns a promise
